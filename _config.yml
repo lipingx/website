@@ -1,0 +1,23 @@
+title: Liping Xiong
+description: Projects, reading, and notes along the way.
+url: "https://lipingx.github.io"
+baseurl: "/website"
+markdown: kramdown
+encoding: utf-8
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .obsidian
+  - .trash
+defaults:
+  - scope:
+      path: "Posts"
+    values:
+      layout: post
+      lang: zh-CN
+  - scope:
+      path: "Projects"
+    values:
+      layout: post

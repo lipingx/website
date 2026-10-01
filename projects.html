@@ -1,0 +1,9 @@
+---
+layout: default
+title: Projects
+---
+<section class="intro"><p class="eyebrow">WORK &amp; EXPLORATIONS</p><h1>Projects</h1><p class="lede">A place for the things I make.</p></section>
+{% assign projects = site.pages | where_exp: 'item', "item.path contains 'Projects/'" %}
+{% if projects.size > 0 %}
+<ul class="entries">{% for project in projects %}<li><a href="{{ project.url | relative_url }}">{{ project.title | default: project.name | remove: '.md' | escape }} <span aria-hidden="true">↗</span></a></li>{% endfor %}</ul>
+{% else %}<p class="muted">Project write-ups will appear here as I share them.</p>{% endif %}

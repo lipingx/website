@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% assign page_title = page.title | default: page.name | remove: '.md' %}
+  <title>{% if page_title %}{{ page_title | escape }} · {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}#writing">Writing</a>
+      <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+    </nav>
+  </header>
+  <main id="main" class="wrap">{{ content }}</main>
+  <footer class="wrap">{{ site.title }} <span>·</span> <a href="https://github.com/lipingx">GitHub</a></footer>
+</body>
+</html>

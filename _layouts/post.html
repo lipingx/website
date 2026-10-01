@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="post">
+  <a class="back" href="{{ '/' | relative_url }}#writing">← All writing</a>
+  <header>
+    <h1>{{ page.title | default: page.name | remove: '.md' | escape }}</h1>
+    {% if page.created %}<time datetime="{{ page.created | date: '%Y-%m-%d' }}">{{ page.created | date: '%Y-%m-%d' }}</time>{% endif %}
+  </header>
+  <div class="prose">{{ content }}</div>
+</article>

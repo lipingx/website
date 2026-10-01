@@ -1,0 +1,22 @@
+---
+layout: default
+title: Home
+---
+<section class="intro">
+  <p class="eyebrow">A PERSONAL NOTEBOOK</p>
+  <h1>Making things.<br>Making sense of things.</h1>
+  <p class="lede">Projects, reading, and notes along the way.</p>
+</section>
+<section id="writing" class="writing">
+  <div class="section-heading"><h2>Writing</h2><span>Thoughts &amp; observations</span></div>
+  {% assign articles = site.pages | where: 'layout', 'post' | sort: 'created' | reverse %}
+  <ul class="entries">
+  {% for article in articles %}
+    {% if article.path contains 'Posts/' %}
+    <li><a href="{{ article.url | relative_url }}"><span lang="{{ article.lang | default: 'en' }}">{{ article.title | default: article.name | remove: '.md' | escape }}</span><span class="arrow" aria-hidden="true">↗</span></a>
+      {% if article.created %}<time datetime="{{ article.created | date: '%Y-%m-%d' }}">{{ article.created | date: '%b %d, %Y' }}</time>{% endif %}
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</section>
