@@ -10,12 +10,31 @@ title: Home
 <section id="writing" class="writing">
   <div class="section-heading"><h2>Writing</h2><span>Thoughts &amp; observations</span></div>
   {% assign articles = site.pages | where: 'layout', 'post' | sort: 'created' | reverse %}
+  {% assign seen = '|' %}
   <ul class="entries">
   {% for article in articles %}
     {% if article.path contains 'Posts/' %}
-    <li><a href="{{ article.url | relative_url }}"><span lang="{{ article.lang | default: 'en' }}">{{ article.title | default: article.name | remove: '.md' | escape }}</span><span class="arrow" aria-hidden="true">↗</span></a>
-      {% if article.created %}<time datetime="{{ article.created | date: '%Y-%m-%d' }}">{{ article.created | date: '%b %d, %Y' }}</time>{% endif %}
-    </li>
+      {% assign key = article.translation_key | default: article.url %}
+      {% assign token = key | prepend: '|' | append: '|' %}
+      {% unless seen contains token %}
+        {% assign seen = seen | append: key | append: '|' %}
+        {% if article.translation_key %}
+          {% assign versions = articles | where: 'translation_key', article.translation_key | sort: 'lang' %}
+        {% else %}
+          {% assign versions = articles | where: 'url', article.url %}
+        {% endif %}
+        <li>
+          {% for version in versions %}
+          <a class="article-title" lang="{{ version.lang }}" href="{{ version.url | relative_url }}">{{ version.title | default: version.name | remove: '.md' | escape }}<span class="arrow" aria-hidden="true">↗</span></a>
+          {% endfor %}
+          {% if article.created %}<time datetime="{{ article.created | date: '%Y-%m-%d' }}">{{ article.created | date: '%b %d, %Y' }}</time>{% endif %}
+          <nav class="languages" aria-label="Article languages">
+          {% for version in versions %}
+            <a lang="{{ version.lang }}" hreflang="{{ version.lang }}" href="{{ version.url | relative_url }}">{% if version.lang == 'zh-CN' %}中文{% else %}English{% endif %}</a>
+          {% endfor %}
+          </nav>
+        </li>
+      {% endunless %}
     {% endif %}
   {% endfor %}
   </ul>

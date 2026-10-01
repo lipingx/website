@@ -2,10 +2,18 @@
 layout: default
 ---
 <article class="post">
-  <a class="back" href="{{ '/' | relative_url }}#writing">← All writing</a>
+  <a class="back" href="{{ '/' | relative_url }}#writing">{% if page.lang == 'zh-CN' %}← 所有文章{% else %}← All writing{% endif %}</a>
   <header>
     <h1>{{ page.title | default: page.name | remove: '.md' | escape }}</h1>
     {% if page.created %}<time datetime="{{ page.created | date: '%Y-%m-%d' }}">{{ page.created | date: '%Y-%m-%d' }}</time>{% endif %}
+    {% if page.translation_key %}
+    {% assign versions = site.pages | where: 'translation_key', page.translation_key | sort: 'lang' %}
+    <nav class="languages" aria-label="{% if page.lang == 'zh-CN' %}文章语言{% else %}Article languages{% endif %}">
+    {% for version in versions %}
+      <a lang="{{ version.lang }}" hreflang="{{ version.lang }}" href="{{ version.url | relative_url }}"{% if version.url == page.url %} aria-current="page"{% endif %}>{% if version.lang == 'zh-CN' %}中文{% else %}English{% endif %}</a>
+    {% endfor %}
+    </nav>
+    {% endif %}
   </header>
   <div class="prose">{{ content }}</div>
 </article>

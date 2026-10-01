@@ -25,3 +25,7 @@ All files committed to this public repository are public, regardless of any publ
 - `.github/workflows/pages.yml`: build and deployment.
 
 Obsidian settings and generated `_site/` files are ignored. Jekyll runs on GitHub, so local Ruby installation is not required to publish. After purchasing a custom domain, configure it in GitHub Pages settings and update `url` and `baseurl` here.
+
+## Bilingual articles
+
+Keep language versions in separate Markdown files with `lang: zh-CN` or `lang: en`, a language-specific `title`, and the same `translation_key` (for example `hillbilly-elegy`). Both versions retain their own publishing flag. The homepage groups them into one entry; each article links to its available translation. An unpaired post still appears normally. The previous Chinese article URL redirects to its new page.
