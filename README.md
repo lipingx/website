@@ -28,4 +28,4 @@ Obsidian settings and generated `_site/` files are ignored. Jekyll runs on GitHu
 
 ## Bilingual articles
 
-Keep language versions in separate Markdown files with `lang: zh-CN` or `lang: en`, a language-specific `title`, and the same `translation_key` (for example `hillbilly-elegy`). Both versions retain their own publishing flag. The homepage groups them into one entry; each article links to its available translation. An unpaired post still appears normally. The previous Chinese article URL redirects to its new page.
+Keep language versions in separate Markdown files with `lang: zh-CN` or `lang: en`, a language-specific `title`, and the same `translation_key` (for example `hillbilly-elegy`). Both versions retain their own publishing flag. The homepage lists only English articles (`lang: en`); each article links to its available translation. Chinese articles remain accessible through the language switch inside the post. The previous Chinese article URL redirects to its new page.
