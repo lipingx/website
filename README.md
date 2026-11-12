@@ -29,3 +29,17 @@ Obsidian settings and generated `_site/` files are ignored. Jekyll runs on GitHu
 ## Bilingual articles
 
 Keep language versions in separate Markdown files with `lang: zh-CN` or `lang: en`, a language-specific `title`, and the same `translation_key` (for example `hillbilly-elegy`). Both versions retain their own publishing flag. The homepage lists only English articles (`lang: en`); each article links to its available translation. Chinese articles remain accessible through the language switch inside the post. The previous Chinese article URL redirects to its new page.
+
+## Relationship resource guide
+
+The English and Chinese Learning How to Love guides now live on
+https://learningtorelate.org/resources/start-here/ and
+https://learningtorelate.org/zh/resources/start-here/. Their original files use
+`layout: redirect` and contain only redirect metadata. The homepage links directly
+to the new English guide. The old URLs use HTML refresh plus canonical links, not
+server-side 301 redirects.
+
+Use the two-site exporter in the `lipingx/learningtorelate` repository (`tools/publish.py`)
+or the existing local `publish.py` entry point. Its default `--site personal` skips
+relationship-targeted notes and protects these two redirect filenames. Do not use
+an older exporter that ignores the `site` property.
