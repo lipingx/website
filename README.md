@@ -1,6 +1,6 @@
 # Personal website
 
-Live site: https://lipingx.github.io/website/
+Live site: https://lipingxiong.net/
 
 Written in Obsidian, rendered with Jekyll, and hosted on GitHub Pages.
 
@@ -24,7 +24,7 @@ All files committed to this public repository are public, regardless of any publ
 - `assets/css/style.css`: responsive styling.
 - `.github/workflows/pages.yml`: build and deployment.
 
-Obsidian settings and generated `_site/` files are ignored. Jekyll runs on GitHub, so local Ruby installation is not required to publish. After purchasing a custom domain, configure it in GitHub Pages settings and update `url` and `baseurl` here.
+Obsidian settings and generated `_site/` files are ignored. Jekyll runs on GitHub, so local Ruby installation is not required to publish. The custom domain is `lipingxiong.net`, configured in GitHub Pages settings. Keep `url` set to `https://lipingxiong.net` and `baseurl` empty because the site is served at the domain root.
 
 ## Bilingual articles
 

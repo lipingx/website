@@ -1,7 +1,7 @@
 title: Liping Xiong
 description: Projects, reading, and notes along the way.
-url: "https://lipingx.github.io"
-baseurl: "/website"
+url: "https://lipingxiong.net"
+baseurl: ""
 markdown: kramdown
 encoding: utf-8
 exclude:
